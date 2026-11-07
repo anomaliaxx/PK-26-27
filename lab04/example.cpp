@@ -3,7 +3,9 @@
 using namespace std;
 
 // używając pętli for napisz odliczanie od zera do zadanej przez użytkownika wartości
+//0, 1, 2, 3, 4, 5! dla N == 5
 // to samo, ale od zadanej wartości odliczanie w dół (wartości w obu przypadkach wczytujemy z konsoli)
+// 5, 4, 3, 2, 1, 0!
 
 // wartość od zera co drugą, do zadanej przez użytkownika, np.:
 // N = 8
@@ -38,4 +40,5 @@ int main() {
     cout << endl;
     
     return 0;
+    
 }
