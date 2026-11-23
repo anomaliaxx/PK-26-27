@@ -89,6 +89,7 @@ int main() {
     wypiszTablice(tablica, n, m);
 
     // Zwolnienie pamięci
-
+    zwolnijPamiec(tablica, n);
+    
     return 0;
 }
