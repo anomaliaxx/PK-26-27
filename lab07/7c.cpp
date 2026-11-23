@@ -15,23 +15,29 @@ Napisz funkcje do alokowania pamięci i wypisywania tablicy.
 
 using namespace std;
 
-int** alokujTablice(int wiersze, int kolumny) {
+int** alokujTablice(int wiersze, int kolumny)
+{
     int** tablica = new int*[wiersze];
-    for (int i = 0; i < wiersze; i++) {
+    for (int i = 0; i < wiersze; i++)
+    {
         tablica[i] = new int[kolumny];
     }
     return tablica;
 }
 
-void zwolnijPamiec(int** tablica, int wiersze) {
-    for (int i = 0; i < wiersze; i++) {
+void zwolnijPamiec(int** tablica, int wiersze)
+{
+    for (int i = 0; i < wiersze; i++)
+    {
         delete[] tablica[i];
     }
     delete[] tablica;
 }
 
-void wypiszTablice(int** tablica, int wiersze, int kolumny) {
-    for (int i = 0; i < wiersze; i++) {
+void wypiszTablice(int** tablica, int wiersze, int kolumny)
+{
+    for (int i = 0; i < wiersze; i++)
+    {
         for (int j = 0; j < kolumny; j++) {
             cout << setw(6) << tablica[i][j];
         }

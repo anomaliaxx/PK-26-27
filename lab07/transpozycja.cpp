@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -16,29 +17,74 @@ using namespace std;
 
 // do drukowania wartosci na "polu o szerokości 6" służy funkcja setw(szerokosc) -> czyli setw(6)
 
+int ** alokujTablice(int wiersze, int kolumny)
+{
+    int** tablica = new int*[wiersze];
+    for (int i = 0; i < wiersze; i++)
+    {
+        tablica[i] = new int[kolumny];
+    }
+    return tablica;
+}
+
+void zwolnijPamiec(int** tablica, int wiersze)
+{
+    for (int i = 0; i < wiersze; i++)
+    {
+        delete[] tablica[i];
+    }
+    delete[] tablica;
+}
+
+void wypiszTablice(int** tablica, int wiersze, int kolumny)
+{
+    for (int i = 0; i < wiersze; i++)
+    {
+        for (int j = 0; j < kolumny; j++)
+        {
+            cout << setw(6) << tablica[i][j];
+        }
+        cout << endl;
+    }
+}
 
 int main()
 {
-    // wczytanie wymiarów M N
+    int N, M;
 
-    // alokacja pamięci dla tablicy M x N
-    // A: m x n
-    int** A = new int* [m];
-    for (int i = 0; i < m; i++) {
-        A[i] = new int[n];
+    cout << "N: ";
+    cin >> N;
+    cout << "M: ";
+    cin >> M;
+
+    int ** A = alokujTablice(N, M);
+    int licznik = 1;
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < M; j++)
+        {
+            A[j][i] = licznik++;
+        }
     }
 
-
-    // alokacja pamięci dla tablicy N x M
-    // B: n x m
-    int** B = new int* [n];
-    for (int i = 0; i < n; i++) {
-        B[i] = new int[m];
+    int** B = alokujTablice(M, N);
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < M; j++)
+        {
+            B[j][i] = A[i][j];
+        }
     }
 
-    // wywołaj odpowiednie funkcje
+    cout << "A: " << endl;
+    wypiszTablice(A, N, M);
 
-    // pamiętaj o zwolnieniu pamięci (patrz plik macierze dynamiczne i statyczne.cpp - delete[])
+    cout << "B: " << endl;
+    wypiszTablice(B, M, N);
+
+    zwolnijPamiec(A, N);
+    zwolnijPamiec(B, M);
+
 
     return 0;
 }
