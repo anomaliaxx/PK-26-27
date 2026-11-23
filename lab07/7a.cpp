@@ -32,7 +32,7 @@ double wartoscWielomianu(double x, const double wsp[], int n) {
     return wynik;
 }
 
-double bisekcjaRekurencyjna(double a, double b, const double wsp[], int n) {
+double bisekcja(double a, double b, const double wsp[], int n) {
     double c = (a + b) / 2.0;
     double f_c = wartoscWielomianu(c, wsp, n);
 
@@ -43,9 +43,9 @@ double bisekcjaRekurencyjna(double a, double b, const double wsp[], int n) {
     double f_a = wartoscWielomianu(a, wsp, n);
 
     if (f_a * f_c < 0) {
-        return bisekcjaRekurencyjna(a, c, wsp, n);
+        return bisekcja(a, c, wsp, n);
     } else {
-        return bisekcjaRekurencyjna(c, b, wsp, n);
+        return bisekcja(c, b, wsp, n);
     }
 }
 
@@ -79,11 +79,9 @@ int main()
     double f_a = wartoscWielomianu(a, wsp, n);
     double f_b = wartoscWielomianu(b, wsp, n);
 
-    if (f_a * f_b > 0) {
-        cout << "\nMetoda bisekcji nie gwarantuje znalezienia miejsca zerowego w podanym przedziale" << endl;
-        cout << "(wartosci funkcji na koncach przedzialu maja ten sam znak)." << endl;
-    } else {
-        double miejsceZerowe = bisekcjaRekurencyjna(a, b, wsp, n);
+    if (f_a * f_b > 0) cout << "Brak miejsca zerowego w zadanym przedziale" << endl;
+    else {
+        double miejsceZerowe = bisekcja(a, b, wsp, n);
         
         cout << fixed << setprecision(3);
         cout << "\nMiejsce zerowe: " << miejsceZerowe << endl;
