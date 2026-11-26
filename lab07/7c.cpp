@@ -38,7 +38,8 @@ void wypiszTablice(int** tablica, int wiersze, int kolumny)
 {
     for (int i = 0; i < wiersze; i++)
     {
-        for (int j = 0; j < kolumny; j++) {
+        for (int j = 0; j < kolumny; j++)
+        {
             cout << setw(6) << tablica[i][j];
         }
         cout << endl;
@@ -55,15 +56,19 @@ int main() {
 
     int** A = alokujTablice(N, M);
     int licznik = 1;
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < M; j++) {
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < M; j++)
+        {
             A[i][j] = licznik++;
         }
     }
 
     int** B = alokujTablice(M, N);
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j < M; j++) {
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < M; j++)
+        {
             B[j][i] = A[i][j];
         }
     }

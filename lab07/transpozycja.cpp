@@ -63,7 +63,7 @@ int main()
     {
         for (int j = 0; j < M; j++)
         {
-            A[j][i] = licznik++;
+            A[i][j] = licznik++;
         }
     }
 
